@@ -43,6 +43,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - dalcinl
     - minrk
     - msarahan
     - ocefpaf
