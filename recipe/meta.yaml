@@ -10,7 +10,7 @@ source:
   md5: 4f7d8126d7367c239fd67615680990e3
 
 build:
-  number: 0
+  number: 1
   script: pip install --no-deps .
   detect_binary_files_with_prefix: true
   # TODO: build with msmpi when it works
