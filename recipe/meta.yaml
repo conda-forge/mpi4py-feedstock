@@ -33,6 +33,8 @@ test:
 about:
   home: http://pythonhosted.org/mpi4py/
   license: BSD 2-clause
+  license_family: BSD
+  license_file: LICENSE.rst
   summary: Provides bindings of the MPI standard for Python
   description: |
      MPI for Python provides bindings of the Message Passing Interface (MPI)
