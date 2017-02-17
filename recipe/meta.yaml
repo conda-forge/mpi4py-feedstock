@@ -1,5 +1,6 @@
 {% set version = "2.0.0" %}
-
+{% set mpi = os.environ.get('MPI_VARIANT', 'mpich') %}
+{% set build = 3 %}
 package:
   name: mpi4py
   version: {{ version }}
@@ -10,19 +11,22 @@ source:
   md5: 4f7d8126d7367c239fd67615680990e3
 
 build:
-  number: 2
+  number: {{ build }}
   script: pip install --no-deps .
   # TODO: build with msmpi when it works
   skip: true  # [win]
+  features:
+    - mpi_{{ mpi }}
 
 requirements:
   build:
+    - toolchain
     - python
     - pip
-    - mpich          # [unix]
+    - {{ mpi }}
   run:
     - python
-    - mpich          # [unix]
+    - {{ mpi }}
 
 test:
   imports:
