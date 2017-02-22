@@ -16,7 +16,7 @@ build:
   # TODO: build with msmpi when it works
   skip: true  # [win]
   features:
-    - mpi_{{ mpi }}
+    - {{ mpi }}
 
 requirements:
   build:
