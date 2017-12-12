@@ -9,9 +9,12 @@ osx_image: xcode6.4
 env:
   matrix:
     
-    - CONDA_PY=27
-    - CONDA_PY=35
-    - CONDA_PY=36
+    - MPI_VARIANT=mpich  CONDA_PY=27
+    - MPI_VARIANT=openmpi  CONDA_PY=27
+    - MPI_VARIANT=mpich  CONDA_PY=35
+    - MPI_VARIANT=openmpi  CONDA_PY=35
+    - MPI_VARIANT=mpich  CONDA_PY=36
+    - MPI_VARIANT=openmpi  CONDA_PY=36
   global:
     # The BINSTAR_TOKEN secure variable. This is defined canonically in conda-forge.yml.
     - secure: "ZHBOqxSM6PnI0tg+5SKjXMTz/HsMsgKlS5DPiett2GgaWEyps+sjuRv7J7DxqUa53r4CKfH96rLZtbSogFa7mUAkv6ZKd7mvMAbiovSJarVBi4qb7fHCuDW2KDYPc2muUKY3FxRohdesX/S0WAWiKtwqJq5khoEYMhuJxEimz2c2mish7il30QECPSot3bt4JMUktL3lm3jdSniGdQc0IMwXj2lMTMXv470NuI1JriVvHxQmrlUzVS0r+NhigHWWdkEXyXsA91I+hUyzUvcoBDwlypWmw88sGPp0Zr+WgwG5fy/9HG8lLkOsVT2NRl6DRY1z3/dpSaolcLkRx2oeRqFSEnWRXQ1IsLp0dJOzEr/OZbY57pD2i7wbAsdZSl5+/MvP0YH5vXuk5BtSUVfF/EBXPY/4DubLiStGAT0uSV22WUT6lVS60DFAKyinc+IAGPzWFvR6vK4X8icTBpeJh3eAonEBBoFiLDaoIM+90zY5NJdOAASZ/PNyXk0/0k+uMA8Ghh3eIlIsYlf61zKL5H+AZGaOupZZNaNQikHo7EliRQjNWE84pJNEN0cem9htF6dqzJkf/uCDiL5sjog6pxpzy6GpxAbVnOmNfKO8chGhMsHM65IXqpE36Y6/8PQaBqdno3omRKPlt01vrZxWJ5m5+SPlCK4LoWa5flsxouo="
