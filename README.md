@@ -1,13 +1,13 @@
 About mpi4py
 ============
 
-Home: http://pythonhosted.org/mpi4py/
+Home: http://mpi4py.scipy.org/
 
 Package license: BSD 2-clause
 
 Feedstock license: BSD 3-Clause
 
-Summary: Provides bindings of the MPI standard for Python
+Summary: Python bindings for MPI
 
 MPI for Python provides bindings of the Message Passing Interface (MPI)
 standard for the Python programming language, allowing any Python program
