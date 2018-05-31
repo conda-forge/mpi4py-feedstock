@@ -15,7 +15,7 @@ source:
 
 build:
   number: {{ build }}
-  string: {{ mpi }}_{{ build }}
+  string: py{{ py }}_{{ mpi }}_{{ build }}
   script: pip install --no-deps .
   # TODO: build with msmpi when it works
   skip: true  # [win]
