@@ -1,8 +1,6 @@
-{% set build = 1 %}
+{% set build = 2 %}
 {% set version = '3.0.0' %}
 {% set sha256 = 'b457b02d85bdd9a4775a097fac5234a20397b43e073f14d9e29b6cd78c68efd7' %}
-{% set mpi = os.environ.get('MPI_VARIANT', 'mpich') %}
-{% set mpi_version = {'mpich': '3.2.*', 'openmpi': '3.0.*'}[mpi] %}
 
 package:
   name: mpi4py
@@ -25,10 +23,10 @@ requirements:
     - toolchain
     - python
     - pip
-    - {{ mpi }} {{ mpi_version }}  # [unix]
+    - {{ mpi }}
   run:
     - python
-    - {{ mpi }} {{ mpi_version }}  # [unix]
+    - {{ mpi }}
 
 test: {}
 
