@@ -1,3 +1,9 @@
+c_compiler:
+- toolchain_c
+cxx_compiler:
+- toolchain_cxx
+fortran_compiler:
+- toolchain_fort
 mpi:
 - openmpi
 pin_run_as_build:
