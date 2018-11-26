@@ -1,4 +1,4 @@
-{% set build = 1003 %}
+{% set build = 1004 %}
 {% set version = '3.0.0' %}
 {% set sha256 = 'b457b02d85bdd9a4775a097fac5234a20397b43e073f14d9e29b6cd78c68efd7' %}
 
@@ -13,7 +13,6 @@ source:
 
 build:
   number: {{ build }}
-  string: py{{ py }}_{{ mpi }}_{{ build }}
   script: pip install --no-deps .
   # TODO: build with msmpi when it works
   skip: true  # [win]
