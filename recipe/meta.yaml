@@ -1,4 +1,4 @@
-{% set build = 1004 %}
+{% set build = 1005 %}
 {% set version = '3.0.0' %}
 {% set sha256 = 'b457b02d85bdd9a4775a097fac5234a20397b43e073f14d9e29b6cd78c68efd7' %}
 

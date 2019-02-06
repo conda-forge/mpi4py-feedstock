@@ -1,9 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
-build_number_decrement:
-- '1000'
 c_compiler:
-- toolchain_c
+- clang
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -13,15 +11,10 @@ macos_machine:
 macos_min_version:
 - '10.9'
 mpi:
-- mpich
+- openmpi
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
 - '3.6'
-zip_keys:
-- - c_compiler
-  - channel_sources
-  - channel_targets
-  - build_number_decrement
