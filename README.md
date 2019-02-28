@@ -5,7 +5,7 @@
 About mpi4py
 ============
 
-Home: http://mpi4py.scipy.org/
+Home: https://mpi4py.bitbucket.io/
 
 Package license: BSD 2-clause
 
