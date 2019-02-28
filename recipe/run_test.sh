@@ -4,3 +4,4 @@ export OMPI_MCA_rmaps_base_oversubscribe=yes
 
 python -c 'import mpi4py'
 python -c 'import mpi4py.MPI'
+python -c 'import mpi4py.futures'
