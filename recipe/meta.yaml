@@ -1,6 +1,5 @@
-{% set build = 1005 %}
-{% set version = '3.0.0' %}
-{% set sha256 = 'b457b02d85bdd9a4775a097fac5234a20397b43e073f14d9e29b6cd78c68efd7' %}
+{% set version = '3.0.1' %}
+{% set sha256 = '6549a5b81931303baf6600fa2e3bc04d8bd1d5c82f3c21379d0d64a9abcca851' %}
 
 package:
   name: mpi4py
@@ -12,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: {{ build }}
+  number: 0
   script: pip install --no-deps .
   # TODO: build with msmpi when it works
   skip: true  # [win]
@@ -31,7 +30,7 @@ requirements:
 test: {}
 
 about:
-  home: http://mpi4py.scipy.org/
+  home: https://mpi4py.bitbucket.io/
   license: BSD 2-clause
   license_family: BSD
   license_file: LICENSE.rst
