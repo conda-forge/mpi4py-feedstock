@@ -1,70 +1,35 @@
 # This file was generated automatically from conda-smithy. To update this configuration,
 # update the conda-forge.yml and/or the recipe/meta.yaml.
-# -*- mode: yaml -*-
 
 language: generic
 
-os: osx
-osx_image: xcode9.4
-
-
 env:
-  matrix:
-    - CONFIG=osx_mpimpichpython2.7
-    - CONFIG=osx_mpimpichpython3.6
-    - CONFIG=osx_mpimpichpython3.7
-    - CONFIG=osx_mpiopenmpipython2.7
-    - CONFIG=osx_mpiopenmpipython3.6
-    - CONFIG=osx_mpiopenmpipython3.7
-
   global:
     # The BINSTAR_TOKEN secure variable. This is defined canonically in conda-forge.yml.
     - secure: "d0/7KqcPJXL6xDtX9hLEPOjtidlWJWtli9LUxclgum7IjeGcbE76sgrJmKSnuue5gfBar5n7omGMmXzU0Y7nlgTudf/GKSNnAT3QnWqr2An76WebXXo5xLCXIX0jlzbGZQ9SDGRm6Hgr6D1FaJsfsbHWOzEQrFxmzPy1cbbao77oBhonMqpCRuZpq/a7vWswayaiCfx35XjhSVIhyqytmNBh9jOXreggE3h39orDkdQf5/6bB87kWAW/vPLec4gL2k39t1Ir29yp7ppLjqybugpd5hrqSLBAznpCkXRZzo7hJOCFC6kEBJIKXRbkrm8uZSXoRQ2pGnGRiJfjXDmFqdFbjZIucZziF0c3cyn5gBom/s2nA2wQfeRwWpuspkefNhjkRgA85SjGx2I94HtpH8EIHq0u5vcWCAZoPxsWM4/5E+WVAkt8RhF0LdaMsikWtAxSUul0U8LNhgRCvt6CbJnnICt2aEBm/hTLA36rJmujwPI982Au9ZNZtu6TF6eBj2yohyr/6A6a8xzvXH12iLQdbc0DaglBN34jQUDcKp5Dq+inLz47HU3BzJCTDzKA/mrvfL4jtnCwf+N59EVNeCNfatqb6I9EQT7bc9LN5GefglyS0se/IlegKEDjHh+iwtCOl3eEZ3M3Hl9Pu75CW12SuxxpORBshRVhw6a6CYw="
 
+matrix:
+  include:
+    - env: CONFIG=linux_ppc64le_mpimpichpython2.7 UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
+      os: linux-ppc64le
 
-before_install:
-    # Fast finish the PR.
-    - |
-      (curl https://raw.githubusercontent.com/conda-forge/conda-forge-ci-setup-feedstock/master/recipe/conda_forge_ci_setup/ff_ci_pr_build.py | \
-          python - -v --ci "travis" "${TRAVIS_REPO_SLUG}" "${TRAVIS_BUILD_NUMBER}" "${TRAVIS_PULL_REQUEST}") || exit 1
+    - env: CONFIG=linux_ppc64le_mpimpichpython3.6 UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
+      os: linux-ppc64le
 
-    # Remove homebrew.
-    - |
-      echo ""
-      echo "Removing homebrew from Travis CI to avoid conflicts."
-      curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall > ~/uninstall_homebrew
-      chmod +x ~/uninstall_homebrew
-      ~/uninstall_homebrew -fq
-      rm ~/uninstall_homebrew
+    - env: CONFIG=linux_ppc64le_mpimpichpython3.7 UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
+      os: linux-ppc64le
 
+    - env: CONFIG=linux_ppc64le_mpiopenmpipython2.7 UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
+      os: linux-ppc64le
 
-install:
-    # Install Miniconda.
-    - |
-      echo ""
-      echo "Installing a fresh version of Miniconda."
-      MINICONDA_URL="https://repo.continuum.io/miniconda"
-      MINICONDA_FILE="Miniconda3-latest-MacOSX-x86_64.sh"
-      curl -L -O "${MINICONDA_URL}/${MINICONDA_FILE}"
-      bash $MINICONDA_FILE -b
+    - env: CONFIG=linux_ppc64le_mpiopenmpipython3.6 UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
+      os: linux-ppc64le
 
-    # Configure conda.
-    - |
-      echo ""
-      echo "Configuring conda."
-      source /Users/travis/miniconda3/bin/activate root
-
-      conda install -n root -c conda-forge --quiet --yes conda-forge-ci-setup=2 conda-build
-      setup_conda_rc ./ ./recipe ./.ci_support/${CONFIG}.yaml
-
-      source run_conda_forge_build_setup
-
-    # compiler cleanup
-    - |
-      mangle_compiler ./ ./recipe ./.ci_support/${CONFIG}.yaml
+    - env: CONFIG=linux_ppc64le_mpiopenmpipython3.7 UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
+      os: linux-ppc64le
 
 script:
-  # generate the build number clobber
-  - make_build_number ./ ./recipe ./.ci_support/${CONFIG}.yaml
-  -  conda build ./recipe -m ./.ci_support/${CONFIG}.yaml --clobber-file ./.ci_support/clobber_${CONFIG}.yaml
-  - upload_package ./ ./recipe ./.ci_support/${CONFIG}.yaml
+  - export CI=travis
+
+
+  - if [[ ${PLATFORM} =~ .*linux.* ]]; then ./.travis/run_docker_build.sh; fi
