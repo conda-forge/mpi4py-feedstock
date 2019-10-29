@@ -1,5 +1,6 @@
 {% set version = '3.0.2' %}
 {% set sha256 = 'f8d629d1e3e3b7b89cb99d0e3bc5505e76cc42089829807950d5c56606ed48e0' %}
+{% set mpi = mpi or 'mpich' %}
 
 package:
   name: mpi4py
@@ -11,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: pip install --no-deps .
   # TODO: build with msmpi when it works
   skip: true  # [win]
@@ -48,3 +49,5 @@ extra:
     - minrk
     - msarahan
     - ocefpaf
+    - davidbrochart
+    - SylvainCorlay

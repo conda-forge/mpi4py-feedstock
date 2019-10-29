@@ -10,16 +10,10 @@ env:
 
 matrix:
   include:
-    - env: CONFIG=linux_ppc64le_mpimpichpython2.7 UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
-      os: linux-ppc64le
-
     - env: CONFIG=linux_ppc64le_mpimpichpython3.6 UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
       os: linux-ppc64le
 
     - env: CONFIG=linux_ppc64le_mpimpichpython3.7 UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
-      os: linux-ppc64le
-
-    - env: CONFIG=linux_ppc64le_mpiopenmpipython2.7 UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
       os: linux-ppc64le
 
     - env: CONFIG=linux_ppc64le_mpiopenmpipython3.6 UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
@@ -30,6 +24,7 @@ matrix:
 
 script:
   - export CI=travis
+  - export GIT_BRANCH="$TRAVIS_BRANCH"
 
 
-  - if [[ ${PLATFORM} =~ .*linux.* ]]; then ./.travis/run_docker_build.sh; fi
+  - if [[ ${PLATFORM} =~ .*linux.* ]]; then ./.scripts/run_docker_build.sh; fi
