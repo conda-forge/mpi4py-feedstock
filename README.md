@@ -25,6 +25,13 @@ Current build status
         <img alt="macOS" src="https://img.shields.io/travis/conda-forge/mpi4py-feedstock/master.svg?label=macOS">
       </a>
     </td>
+  </tr><tr>
+    <td>Drone</td>
+    <td>
+      <a href="https://cloud.drone.io/conda-forge/mpi4py-feedstock">
+        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/master.svg?label=Linux">
+      </a>
+    </td>
   </tr>
     
   <tr>
@@ -39,13 +46,6 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_aarch64_mpimpichpython2.7</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=644&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mpi4py-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_mpimpichpython2.7" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>linux_aarch64_mpimpichpython3.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=644&branchName=master">
@@ -57,13 +57,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=644&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mpi4py-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_mpimpichpython3.7" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64_mpiopenmpipython2.7</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=644&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mpi4py-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_mpiopenmpipython2.7" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -123,13 +116,6 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_mpimpichpython2.7</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=644&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mpi4py-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_mpimpichpython2.7" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>linux_ppc64le_mpimpichpython3.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=644&branchName=master">
@@ -141,13 +127,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=644&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mpi4py-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_mpimpichpython3.7" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_mpiopenmpipython2.7</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=644&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mpi4py-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_mpiopenmpipython2.7" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -312,7 +291,9 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@SylvainCorlay](https://github.com/SylvainCorlay/)
 * [@dalcinl](https://github.com/dalcinl/)
+* [@davidbrochart](https://github.com/davidbrochart/)
 * [@minrk](https://github.com/minrk/)
 * [@msarahan](https://github.com/msarahan/)
 * [@ocefpaf](https://github.com/ocefpaf/)
