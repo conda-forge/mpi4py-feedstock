@@ -19,6 +19,9 @@ jobs:
       osx_mpimpichpython3.7:
         CONFIG: osx_mpimpichpython3.7
         UPLOAD_PACKAGES: True
+      osx_mpimpichpython3.8:
+        CONFIG: osx_mpimpichpython3.8
+        UPLOAD_PACKAGES: True
       osx_mpiopenmpipython2.7:
         CONFIG: osx_mpiopenmpipython2.7
         UPLOAD_PACKAGES: True
@@ -27,6 +30,9 @@ jobs:
         UPLOAD_PACKAGES: True
       osx_mpiopenmpipython3.7:
         CONFIG: osx_mpiopenmpipython3.7
+        UPLOAD_PACKAGES: True
+      osx_mpiopenmpipython3.8:
+        CONFIG: osx_mpiopenmpipython3.8
         UPLOAD_PACKAGES: True
 
   steps:
