@@ -1,11 +1,8 @@
 appveyor:
   secure: {BINSTAR_TOKEN: tumuXLL8PU75WMnRDemRy02ruEq2RpNxeK3dz0MjFssnosPm2v4EFjfNB4PTotA1}
-compiler_stack: comp7
 matrix:
-- - [MPI_VARIANT, openmpi]
-- - [MPI_VARIANT, mpich]
-max_py_ver: '37'
-max_r_ver: '35'
+  -   - [MPI_VARIANT, openmpi]
+  -   - [MPI_VARIANT, mpich]
 provider: {linux_aarch64: default, linux_ppc64le: default}
 travis:
   secure: {BINSTAR_TOKEN: d0/7KqcPJXL6xDtX9hLEPOjtidlWJWtli9LUxclgum7IjeGcbE76sgrJmKSnuue5gfBar5n7omGMmXzU0Y7nlgTudf/GKSNnAT3QnWqr2An76WebXXo5xLCXIX0jlzbGZQ9SDGRm6Hgr6D1FaJsfsbHWOzEQrFxmzPy1cbbao77oBhonMqpCRuZpq/a7vWswayaiCfx35XjhSVIhyqytmNBh9jOXreggE3h39orDkdQf5/6bB87kWAW/vPLec4gL2k39t1Ir29yp7ppLjqybugpd5hrqSLBAznpCkXRZzo7hJOCFC6kEBJIKXRbkrm8uZSXoRQ2pGnGRiJfjXDmFqdFbjZIucZziF0c3cyn5gBom/s2nA2wQfeRwWpuspkefNhjkRgA85SjGx2I94HtpH8EIHq0u5vcWCAZoPxsWM4/5E+WVAkt8RhF0LdaMsikWtAxSUul0U8LNhgRCvt6CbJnnICt2aEBm/hTLA36rJmujwPI982Au9ZNZtu6TF6eBj2yohyr/6A6a8xzvXH12iLQdbc0DaglBN34jQUDcKp5Dq+inLz47HU3BzJCTDzKA/mrvfL4jtnCwf+N59EVNeCNfatqb6I9EQT7bc9LN5GefglyS0se/IlegKEDjHh+iwtCOl3eEZ3M3Hl9Pu75CW12SuxxpORBshRVhw6a6CYw=}
