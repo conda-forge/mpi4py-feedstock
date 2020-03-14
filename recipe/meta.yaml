@@ -11,7 +11,7 @@ source:
   sha256: a9f8f549781a2757988eb536fd5f088d8b1f94c2a79ed9724c12f9a6f7d188d1
 
 build:
-  number: 0
+  number: 1
   script: pip install --no-deps .
   # TODO: build with msmpi when it works
   skip: true  # [win]
