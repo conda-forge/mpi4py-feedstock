@@ -7,11 +7,11 @@ package:
 
 source:
   fn: mpi4py-{{ version }}.tar.gz
-  url: https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-{{ version }}.tar.gz
-  sha256: a9f8f549781a2757988eb536fd5f088d8b1f94c2a79ed9724c12f9a6f7d188d1
+  url: https://github.com/mpi4py/mpi4py/releases/download/{{ version }}/mpi4py-{{ version }}.tar.gz
+  sha256: 012d716c8b9ed1e513fcc4b18e5af16a8791f51e6d1716baccf988ad355c5a1f
 
 build:
-  number: 1
+  number: 2
   script: pip install --no-deps .
   # TODO: build with msmpi when it works
   skip: true  # [win]
@@ -30,8 +30,8 @@ requirements:
 test: {}
 
 about:
-  home: https://mpi4py.bitbucket.io/
-  license: BSD 2-clause
+  home: https://mpi4py.github.io/
+  license: BSD-2-Clause
   license_family: BSD
   license_file: LICENSE.rst
   summary: Python bindings for MPI
@@ -40,7 +40,7 @@ about:
      standard for the Python programming language, allowing any Python program
      to exploit multiple processors.
   doc_url: https://mpi4py.readthedocs.org/
-  dev_url: https://bitbucket.org/mpi4py/mpi4py
+  dev_url: https://github.com/mpi4py/mpi4py
 
 extra:
   recipe-maintainers:
