@@ -31,7 +31,7 @@ test: {}
 
 about:
   home: https://mpi4py.bitbucket.io/
-  license: BSD 2-clause
+  license: BSD-2-Clause
   license_family: BSD
   license_file: LICENSE.rst
   summary: Python bindings for MPI
