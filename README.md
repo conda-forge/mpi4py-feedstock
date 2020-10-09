@@ -1,15 +1,15 @@
 About mpi4py
 ============
 
-Home: https://mpi4py.bitbucket.io/
+Home: https://mpi4py.github.io/
 
-Package license: BSD 2-clause
+Package license: BSD-2-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mpi4py-feedstock/blob/master/LICENSE.txt)
 
 Summary: Python bindings for MPI
 
-Development: https://bitbucket.org/mpi4py/mpi4py
+Development: https://github.com/mpi4py/mpi4py
 
 Documentation: https://mpi4py.readthedocs.org/
 
