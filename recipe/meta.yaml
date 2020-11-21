@@ -12,13 +12,18 @@ source:
 
 build:
   number: 2
-  script: pip install --no-deps .
+  script:
+    - cp -rf $PREFIX/share/openmpi/*.txt $BUILD_PREFIX/share/openmpi/   # [build_platform != target_platform and mpi == "openmpi"]
+    - {{ PYTHON }} -m pip install --no-deps . -vv
   # TODO: build with msmpi when it works
   skip: true  # [win]
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ mpi }}                              # [build_platform != target_platform and mpi == "openmpi"]
   host:
     - python
     - pip
