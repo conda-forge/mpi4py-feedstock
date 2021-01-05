@@ -14,7 +14,9 @@ build:
   number: 4
   script:
     - export OPAL_PREFIX=$PREFIX   # [mpi == "openmpi"]
-    - {{ PYTHON }} -m pip install --no-deps . -vv
+    - {{ PYTHON }} -m pip install --no-deps . -vv    # [not win]
+    - {{ PYTHON }} setup.py build --mpi=msmpi-64bit  # [win]
+  skip: true  # [win32]
 
 requirements:
   build:
@@ -32,9 +34,9 @@ requirements:
 
 test:
   imports:
-    - mpi4py         # [win]
-    - mpi4py.MPI     # [win]
-    - mpi4py.futures # [win]
+    - mpi4py          # [win]
+    - mpi4py.MPI      # [win]
+    - mpi4py.futures  # [win]
 
 about:
   home: https://mpi4py.github.io/
