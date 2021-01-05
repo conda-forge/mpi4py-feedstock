@@ -14,9 +14,8 @@ build:
   number: 4
   script:
     - export OPAL_PREFIX=$PREFIX   # [mpi == "openmpi"]
-    - {{ PYTHON }} -m pip install --no-deps . -vv  # [not win]
-    - {{ PYTHON }} setup.py build -vv              # [win]
-    - {{ PYTHON }} setup.py install --user -vv     # [win]
+    - set CCP_HOME=%LIBRARY_PREFIX%  # [win]
+    - {{ PYTHON }} -m pip install --no-deps . -vv
   skip: true  # [win32]
 
 requirements:
