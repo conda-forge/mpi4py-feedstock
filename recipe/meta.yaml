@@ -11,7 +11,7 @@ source:
   sha256: 012d716c8b9ed1e513fcc4b18e5af16a8791f51e6d1716baccf988ad355c5a1f
 
 build:
-  number: 3
+  number: 4
   script:
     - export OPAL_PREFIX=$PREFIX   # [mpi == "openmpi"]
     - {{ PYTHON }} -m pip install --no-deps . -vv
