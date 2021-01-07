@@ -79,7 +79,7 @@ test:
     - where mpiexec                                        # [win]
     - where smpd                                           # [win]
     #- start %LIBRARY_BIN%\smpd.exe -d                      # [win]          
-    - smpd -d 3                                            # [win]
+    - start /B smpd -d 3                                            # [win]
     - mpiexec -help                                        # [win]
     - mpiexec -d 3 -n 2 python -m mpi4py.bench helloworld  # [win]
     - mpiexec -d 3 -n 2 python -m mpi4py.bench ringtest    # [win]
