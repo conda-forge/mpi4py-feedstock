@@ -14,7 +14,9 @@ build:
   number: 4
   script:
     - export OPAL_PREFIX=$PREFIX   # [mpi == "openmpi"]
-    - set CCP_HOME=%LIBRARY_PREFIX%  # [win]
+    #- set CCP_HOME=%LIBRARY_PREFIX%  # [win]
+    - set MSMPI_INC=%LIBRARY_INC%     # [win]
+    - set MSMPI_LIB64=%LIBRARY_LIB%   # [win]
     - {{ PYTHON }} -m pip install --no-deps . -vv
   skip: true  # [win32]
 
@@ -33,10 +35,30 @@ requirements:
     - {{ mpi }}
 
 test:
-  imports:
-    - mpi4py          # [win]
-    - mpi4py.MPI      # [win]
-    - mpi4py.futures  # [win]
+  commands:
+    - |
+
+    {% if mpi == 'openmpi' %}
+    - export OMPI_MCA_plm=isolated
+    - export OMPI_MCA_btl_vader_single_copy_mechanism=none
+    - export OMPI_MCA_rmaps_base_oversubscribe=yes
+    - export OMPI_ALLOW_RUN_AS_ROOT=1
+    - export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
+    {% endif %}
+    {% if mpi == 'msmpi' %}
+    - set MSMPI_BIN=%LIBRARY_BIN%
+    - set MSMPI_INC=%LIBRARY_INC%
+    - set MSMPI_LIB64=%LIBRARY_LIB%
+    {% endif %}
+
+    - python -c "import mpi4py"
+    - python -c "import mpi4py.MPI"
+    - python -c "import mpi4py.futures"
+    - mpiexec -n 2 python -m mpi4py.bench helloworld  # [not win]
+    - mpiexec -n 2 python -m mpi4py.bench ringtest    # [not win]
+    - mpiexec -help                                        # [win]
+    - mpiexec -d 3 -n 2 python -m mpi4py.bench helloworld  # [win]
+    - mpiexec -d 3 -n 2 python -m mpi4py.bench ringtest    # [win]
 
 about:
   home: https://mpi4py.github.io/
