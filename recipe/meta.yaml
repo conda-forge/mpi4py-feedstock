@@ -15,10 +15,15 @@ build:
   script:
     - export OPAL_PREFIX=$PREFIX   # [mpi == "openmpi"]
     #- set CCP_HOME=%LIBRARY_PREFIX%  # [win]
-    - set MSMPI_INC=%LIBRARY_INC%     # [win]
-    - set MSMPI_LIB64=%LIBRARY_LIB%   # [win]
+
+    #- set MSMPI_INC=%LIBRARY_INC%     # [win]
+    #- set MSMPI_LIB64=%LIBRARY_LIB%   # [win]
+
+    - dir "C:\\Program Files\\Microsoft MPI\\"  # [win]
+    - set MSMPI_INC="C:\\Program Files\\Microsoft MPI\\include"  # [win]
+    - set MSMPI_LIB64="C:\\Program Files\\Microsoft MPI\\lib"    # [win]
     - {{ PYTHON }} -m pip install --no-deps . -vv
-  skip: true  # [win32]
+  skip: true  # [not win]
 
 requirements:
   build:
