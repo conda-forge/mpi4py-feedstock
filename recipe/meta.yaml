@@ -23,7 +23,7 @@ build:
     - dir C:\"Program Files"\"Microsoft MPI"\Bin     # [win]
     - C:\"Program Files"\"Microsoft MPI"\Bin\mpiexec -help  # [win]
     - dir C:\"Program Files"\"Microsoft MPI"\Redist  # [win]
-    - rmdir -s -q C:\"Program Files"\"Microsoft MPI"\  # [win]
+    - rmdir -S -Q C:\"Program Files"\"Microsoft MPI"\  # [win]
     - dir C:\"Program Files"\"Microsoft MPI"\        # [win]
     - set MSMPI_INC=%LIBRARY_INC%     # [win]
     - set MSMPI_LIB64=%LIBRARY_LIB%   # [win]
