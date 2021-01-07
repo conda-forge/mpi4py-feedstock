@@ -72,6 +72,13 @@ test:
     - python -c "import mpi4py.futures"
     - mpiexec -n 2 python -m mpi4py.bench helloworld  # [not win]
     - mpiexec -n 2 python -m mpi4py.bench ringtest    # [not win]
+
+    - where mpiexec                                        # [win]
+    - where smpd                                           # [win]
+    - rmdir /Q /S C:\"Program Files"\"Microsoft MPI"\      # [win]
+    - dir C:\"Program Files"\"Microsoft MPI"\              # [win]
+    - where mpiexec                                        # [win]
+    - where smpd                                           # [win]
     - mpiexec -help                                        # [win]
     - mpiexec -d 3 -n 2 python -m mpi4py.bench helloworld  # [win]
     - mpiexec -d 3 -n 2 python -m mpi4py.bench ringtest    # [win]
