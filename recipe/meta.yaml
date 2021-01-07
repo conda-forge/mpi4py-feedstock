@@ -19,9 +19,9 @@ build:
     #- set MSMPI_INC=%LIBRARY_INC%     # [win]
     #- set MSMPI_LIB64=%LIBRARY_LIB%   # [win]
 
-    - dir C:\"Program Files"\Microsoft MPI\  # [win]
-    - set MSMPI_INC="C:\\Program Files\\Microsoft MPI\\include"  # [win]
-    - set MSMPI_LIB64="C:\\Program Files\\Microsoft MPI\\lib"    # [win]
+    - dir C:\"Program Files"\"Microsoft MPI"\  # [win]
+    - set MSMPI_INC="C:\Program Files\Microsoft MPI\include"  # [win]
+    - set MSMPI_LIB64="C:\Program Files\Microsoft MPI\lib"    # [win]
     - {{ PYTHON }} -m pip install --no-deps . -vv
   skip: true  # [not win]
 
