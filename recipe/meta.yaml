@@ -14,27 +14,14 @@ build:
   number: 4
   script:
     - export OPAL_PREFIX=$PREFIX   # [mpi == "openmpi"]
+
+    # On Windows, we could also just do this:
     #- set CCP_HOME=%LIBRARY_PREFIX%  # [win]
-
-    #- set MSMPI_INC=%LIBRARY_INC%     # [win]
-    #- set MSMPI_LIB64=%LIBRARY_LIB%   # [win]
-
-    - set MPI_DIR="C:\Program Files\Microsoft MPI\"  # [win]
-    - dir %MPI_DIR%\        # [win]
-    - dir %MPI_DIR%\Bin     # [win]
-    - C:\"Program Files"\"Microsoft MPI"\Bin\mpiexec -help  # [win]
-    - dir C:\"Program Files"\"Microsoft MPI"\Redist  # [win]
-    - rmdir /Q /S %MPI_DIR%  # [win]
-    - dir C:\"Program Files"\"Microsoft MPI"\        # [win]
-    - set MPI_DIR=  # [win]
     - set MSMPI_INC=%LIBRARY_INC%     # [win]
     - set MSMPI_LIB64=%LIBRARY_LIB%   # [win]
 
-    #- set MSMPI_INC="C:\Program Files\Microsoft MPI\include"  # [win]
-    #- set MSMPI_LIB64="C:\Program Files\Microsoft MPI\lib"    # [win]
-
     - {{ PYTHON }} -m pip install --no-deps . -vv
-  skip: true  # [not win]
+  skip: true  # [win32]
 
 requirements:
   build:
@@ -52,9 +39,6 @@ requirements:
 
 test:
   commands:
-    - where smpd                    # [win]
-    - smpd -help  # [win]
-
     - |
 
     {% if mpi == 'openmpi' %}
@@ -64,25 +48,15 @@ test:
     - export OMPI_ALLOW_RUN_AS_ROOT=1
     - export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
     {% endif %}
-    {% if mpi == 'msmpi' %}
-    - set MSMPI_BIN=%LIBRARY_BIN%
-    - set MSMPI_INC=%LIBRARY_INC%
-    - set MSMPI_LIB64=%LIBRARY_LIB%
-    {% endif %}
 
     - python -c "import mpi4py"
     - python -c "import mpi4py.MPI"
     - python -c "import mpi4py.futures"
+    # We don't run mpiexec on Windows, because it seems to interfere with Azure
+    # that it would pick up a wrong PMP version, leading to a "Failed to post close
+    # command error 1726" error
     - mpiexec -n 2 python -m mpi4py.bench helloworld  # [not win]
     - mpiexec -n 2 python -m mpi4py.bench ringtest    # [not win]
-
-    - where mpiexec                                        # [win]
-    - where smpd                                           # [win]
-    #- start %LIBRARY_BIN%\smpd.exe -d                      # [win]          
-    - start /B smpd -d 3                                            # [win]
-    - mpiexec -help                                        # [win]
-    - mpiexec -hosts 2 localhost localhost -d 3 python -m mpi4py.bench helloworld  # [win]
-    - mpiexec -hosts 2 localhost localhost -d 3 python -m mpi4py.bench ringtest    # [win]
 
 about:
   home: https://mpi4py.github.io/
