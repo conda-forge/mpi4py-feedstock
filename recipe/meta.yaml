@@ -52,6 +52,9 @@ requirements:
 
 test:
   commands:
+    - where smpd                    # [win]
+    - smpd -help  # [win]
+
     - |
 
     {% if mpi == 'openmpi' %}
@@ -75,10 +78,7 @@ test:
 
     - where mpiexec                                        # [win]
     - where smpd                                           # [win]
-    - rmdir /Q /S C:\"Program Files"\"Microsoft MPI"\      # [win]
-    - dir C:\"Program Files"\"Microsoft MPI"\              # [win]
-    - where mpiexec                                        # [win]
-    - where smpd                                           # [win]
+    - start %LIBRARY_BIN%\smpd.exe -d                      # [win]          
     - mpiexec -help                                        # [win]
     - mpiexec -d 3 -n 2 python -m mpi4py.bench helloworld  # [win]
     - mpiexec -d 3 -n 2 python -m mpi4py.bench ringtest    # [win]
