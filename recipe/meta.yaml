@@ -17,8 +17,8 @@ build:
 
     # On Windows, we could also just do this:
     #- set CCP_HOME=%LIBRARY_PREFIX%  # [win]
-    - set MSMPI_INC=%LIBRARY_INC%     # [win]
-    - set MSMPI_LIB64=%LIBRARY_LIB%   # [win]
+    # but conda-forge/msmpi-feedstock#1 already sets MSMPI_INC and MSMPI_LIB64,
+    # so we just use them
 
     - {{ PYTHON }} -m pip install --no-deps . -vv
   skip: true  # [win32]
