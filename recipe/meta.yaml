@@ -81,8 +81,8 @@ test:
     #- start %LIBRARY_BIN%\smpd.exe -d                      # [win]          
     - start /B smpd -d 3                                            # [win]
     - mpiexec -help                                        # [win]
-    - mpiexec -hosts 1 localhost -d 3 -n 2 python -m mpi4py.bench helloworld  # [win]
-    - mpiexec -hosts 1 localhost -d 3 -n 2 python -m mpi4py.bench ringtest    # [win]
+    - mpiexec -hosts 2 localhost localhost -d 3 python -m mpi4py.bench helloworld  # [win]
+    - mpiexec -hosts 2 localhost localhost -d 3 python -m mpi4py.bench ringtest    # [win]
 
 about:
   home: https://mpi4py.github.io/
