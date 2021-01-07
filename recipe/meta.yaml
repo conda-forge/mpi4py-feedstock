@@ -19,12 +19,14 @@ build:
     #- set MSMPI_INC=%LIBRARY_INC%     # [win]
     #- set MSMPI_LIB64=%LIBRARY_LIB%   # [win]
 
-    - dir C:\"Program Files"\"Microsoft MPI"\        # [win]
-    - dir C:\"Program Files"\"Microsoft MPI"\Bin     # [win]
+    - set MPI_DIR="C:\Program Files\Microsoft MPI\"  # [win]
+    - dir %MPI_DIR%\        # [win]
+    - dir %MPI_DIR%\Bin     # [win]
     - C:\"Program Files"\"Microsoft MPI"\Bin\mpiexec -help  # [win]
     - dir C:\"Program Files"\"Microsoft MPI"\Redist  # [win]
-    - rmdir -S -Q C:\"Program Files"\"Microsoft MPI"\  # [win]
+    - rmdir /Q /S %MPI_DIR%  # [win]
     - dir C:\"Program Files"\"Microsoft MPI"\        # [win]
+    - set MPI_DIR=  # [win]
     - set MSMPI_INC=%LIBRARY_INC%     # [win]
     - set MSMPI_LIB64=%LIBRARY_LIB%   # [win]
 
