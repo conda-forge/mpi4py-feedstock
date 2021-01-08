@@ -11,12 +11,17 @@ source:
   sha256: 012d716c8b9ed1e513fcc4b18e5af16a8791f51e6d1716baccf988ad355c5a1f
 
 build:
-  number: 3
+  number: 4
   script:
     - export OPAL_PREFIX=$PREFIX   # [mpi == "openmpi"]
+
+    # On Windows, we could also just do this:
+    #- set CCP_HOME=%LIBRARY_PREFIX%  # [win]
+    # but conda-forge/msmpi-feedstock#1 already sets MSMPI_INC and MSMPI_LIB64,
+    # so we just use them
+
     - {{ PYTHON }} -m pip install --no-deps . -vv
-  # TODO: build with msmpi when it works
-  skip: true  # [win]
+  skip: true  # [win32]
 
 requirements:
   build:
@@ -32,7 +37,26 @@ requirements:
     - python
     - {{ mpi }}
 
-test: {}
+test:
+  commands:
+    - |
+
+    {% if mpi == 'openmpi' %}
+    - export OMPI_MCA_plm=isolated
+    - export OMPI_MCA_btl_vader_single_copy_mechanism=none
+    - export OMPI_MCA_rmaps_base_oversubscribe=yes
+    - export OMPI_ALLOW_RUN_AS_ROOT=1
+    - export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
+    {% endif %}
+
+    - python -c "import mpi4py"
+    - python -c "import mpi4py.MPI"
+    - python -c "import mpi4py.futures"
+    # We don't run mpiexec on Windows, because it seems to interfere with Azure
+    # that it would pick up a wrong PMP version, leading to a "Failed to post close
+    # command error 1726" error
+    - mpiexec -n 2 python -m mpi4py.bench helloworld  # [not win]
+    - mpiexec -n 2 python -m mpi4py.bench ringtest    # [not win]
 
 about:
   home: https://mpi4py.github.io/
@@ -55,3 +79,4 @@ extra:
     - ocefpaf
     - davidbrochart
     - SylvainCorlay
+    - leofang
