@@ -4,6 +4,9 @@ mpi:
   - msmpi    # [win]
 
 pin_run_as_build:
-  mpich: x.x
-  #openmpi: x.x
-  msmpi: x.x
+  mpich: 
+    max_pin: x.x
+  openmpi: 
+    max_pin: x.x
+  msmpi: 
+    max_pin: x.x
