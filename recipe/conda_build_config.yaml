@@ -1,9 +1,9 @@
 mpi:
-  - mpich    # [not win]
-  - openmpi  # [not win]
-  - msmpi    # [win]
+  - mpich
+  - openmpi
+  - msmpi
 
 pin_run_as_build:
-  mpich: x
-  openmpi: x
+  mpich: x.x
+  openmpi: x.x
   msmpi: x.x
