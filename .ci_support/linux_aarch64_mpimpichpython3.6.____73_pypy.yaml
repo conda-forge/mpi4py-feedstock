@@ -16,11 +16,7 @@ docker_image:
 - quay.io/condaforge/linux-anvil-aarch64
 mpi:
 - mpich
-openmpi:
-- '4.0'
 pin_run_as_build:
-  openmpi:
-    max_pin: x.x
   python:
     min_pin: x.x
     max_pin: x.x
