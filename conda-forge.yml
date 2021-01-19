@@ -3,5 +3,6 @@ conda_forge_output_validation: true
 matrix:
 - - [MPI_VARIANT, openmpi]
 - - [MPI_VARIANT, mpich]
+- - [MPI_VARIANT, msmpi]
 provider: {linux_aarch64: default, linux_ppc64le: default}
 test_on_native_only: true
