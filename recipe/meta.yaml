@@ -10,13 +10,8 @@ source:
     url: https://github.com/mpi4py/mpi4py/releases/download/{{ version }}/mpi4py-{{ version }}.tar.gz
     sha256: 012d716c8b9ed1e513fcc4b18e5af16a8791f51e6d1716baccf988ad355c5a1f
 
-  # MS-MPI Runtime v10.1.2
-  - url: http://download.microsoft.com/download/a/5/2/a5207ca5-1203-491a-8fb8-906fd68ae623/msmpisetup.exe  # [win64]
-    sha256: c305ce3f05d142d519f8dd800d83a4b894fc31bcad30512cefb557feaccbe8b4  # [win64]
-    folder: msmpi  # [win64]
-
 build:
-  number: 6
+  number: 7
   script:
     - export OPAL_PREFIX=$PREFIX   # [mpi == "openmpi"]
 
@@ -43,8 +38,6 @@ requirements:
     - {{ mpi }}
 
 test:
-  source_files:
-    - msmpi/msmpisetup.exe  # [win64]
   commands:
     - |
 
@@ -53,10 +46,6 @@ test:
     - export OMPI_MCA_rmaps_base_oversubscribe=yes          # [mpi == "openmpi"]
     - export OMPI_ALLOW_RUN_AS_ROOT=1                       # [mpi == "openmpi"]
     - export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1               # [mpi == "openmpi"]
-
-    # To run MS-MPI in Conda-Forge's vm image, we need to overwrite the existing MPI Runtime,
-    # see https://github.com/conda-forge/msmpi-feedstock/issues/2#issuecomment-826477768.
-    - msmpi\\msmpisetup.exe -unattend -force -full -verbose || exit 1  # [mpi == "msmpi"]
 
     - python -c "import mpi4py"
     - python -c "import mpi4py.MPI"
