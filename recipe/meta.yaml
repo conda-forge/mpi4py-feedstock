@@ -8,10 +8,10 @@ package:
 source:
   - fn: mpi4py-{{ version }}.tar.gz
     url: https://github.com/mpi4py/mpi4py/releases/download/{{ version }}/mpi4py-{{ version }}.tar.gz
-    sha256: 40dd546bece8f63e1131c3ceaa7c18f8e8e93191a762cd446a8cfcf7f9cce770 
+    sha256: 40dd546bece8f63e1131c3ceaa7c18f8e8e93191a762cd446a8cfcf7f9cce770
 
 build:
-  number: 0 
+  number: 0
   script:
     - export OPAL_PREFIX=$PREFIX   # [mpi == "openmpi"]
 
