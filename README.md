@@ -22,14 +22,7 @@ Current build status
 ====================
 
 
-<table><tr>
-    <td>Travis</td>
-    <td>
-      <a href="https://travis-ci.com/conda-forge/mpi4py-feedstock">
-        <img alt="macOS" src="https://img.shields.io/travis/com/conda-forge/mpi4py-feedstock/master.svg?label=macOS">
-      </a>
-    </td>
-  </tr>
+<table>
     
   <tr>
     <td>Azure</td>
@@ -508,7 +501,4 @@ Feedstock Maintainers
 * [@minrk](https://github.com/minrk/)
 * [@msarahan](https://github.com/msarahan/)
 * [@ocefpaf](https://github.com/ocefpaf/)
-
-
-<!-- dummy commit to enable rerendering -->
 
