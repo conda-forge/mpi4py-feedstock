@@ -3,7 +3,5 @@ mpi:
   - openmpi  # [not win]
   - msmpi    # [win]
 
-pin_run_as_build:
-  mpich: x.x
-  openmpi: x.x
-  msmpi: x.x
+pin_run_as_build:  # [win]
+  msmpi: x.x       # [win]
