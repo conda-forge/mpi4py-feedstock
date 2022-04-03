@@ -11,7 +11,7 @@ source:
     sha256: f1e9fae1079f43eafdd9f817cdb3fd30d709edc093b5d5dada57a461b2db3008
 
 build:
-  number: 0
+  number: 1
   script:
     - export OPAL_PREFIX=$PREFIX   # [mpi == "openmpi"]
 
