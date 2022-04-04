@@ -1,17 +1,11 @@
 c_compiler:
-- gcc
-c_compiler_version:
-- '10'
-cdt_name:
-- cos6
+- vs2017
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
 mpi:
-- mpich
+- msmpi
 mpich:
 - '4'
 openmpi:
@@ -21,6 +15,6 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.10.* *_cpython
+- 3.8.* *_73_pypy
 target_platform:
-- linux-64
+- win-64
