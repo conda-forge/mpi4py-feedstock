@@ -11,7 +11,7 @@ source:
     sha256: f1e9fae1079f43eafdd9f817cdb3fd30d709edc093b5d5dada57a461b2db3008
 
 build:
-  number: 1
+  number: 2
   script:
     - export OPAL_PREFIX=$PREFIX   # [mpi == "openmpi"]
 
@@ -21,6 +21,9 @@ build:
     # so we just use them
 
     - {{ PYTHON }} -m pip install --no-deps . -vv
+    # rewrite references to build prefix as host prefix
+    # only affects cross-compiled openmpi
+    - sed -i "s@${BUILD_PREFIX}@${PREFIX}@g" "${SP_DIR}/mpi4py/mpi.cfg"  # [build_platform != target_platform]
   skip: true  # [win32]
 
 requirements:
@@ -54,6 +57,8 @@ test:
     - python -c "from mpi4py import MPI; print(MPI.Get_library_version())"
     - mpiexec -n 2 python -m mpi4py.bench helloworld
     - mpiexec -n 2 python -m mpi4py.bench ringtest
+    # verify get_config paths exist (not links to build env)
+    - python -c "import os, mpi4py; paths = list(mpi4py.get_config().values()); exist = list(filter(os.path.exists, paths)); assert exist == paths, f'{exist} != {paths}' "
 
 about:
   home: https://mpi4py.github.io/
