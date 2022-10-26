@@ -13,6 +13,7 @@ source:
 build:
   number: 3
   script:
+    - {{ PYTHON }} conf/cythonize.py
     - export OPAL_PREFIX=$PREFIX   # [mpi == "openmpi"]
 
     # On Windows, we could also just do this:
@@ -29,12 +30,14 @@ build:
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ mpi }}                              # [build_platform != target_platform and mpi == "openmpi"]
   host:
     - python
     - pip
+    - cython
     - {{ mpi }}
   run:
     - python
