@@ -11,7 +11,7 @@ channel_targets:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 mpi:
-- openmpi
+- mpich
 mpich:
 - '4'
 openmpi:
@@ -21,6 +21,6 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.10.* *_cpython
+- 3.11.* *_cpython
 target_platform:
 - osx-64
