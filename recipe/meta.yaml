@@ -30,14 +30,14 @@ build:
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
+    - cython <3                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ mpi }}                              # [build_platform != target_platform and mpi == "openmpi"]
   host:
     - python
     - pip
-    - cython
+    - cython <3
     - {{ mpi }}
   run:
     - python
