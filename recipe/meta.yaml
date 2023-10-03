@@ -11,7 +11,7 @@ source:
     sha256: 17858f2ebc623220d0120d1fa8d428d033dde749c4bc35b33d81a66ad7f93480
 
 build:
-  number: 1
+  number: 2
   script:
     - {{ PYTHON }} conf/cythonize.py
     - export OPAL_PREFIX=$PREFIX   # [mpi == "openmpi"]
@@ -38,10 +38,10 @@ requirements:
     - python
     - pip
     - cython <3
-    - {{ mpi }}
+    - {{ mpi | replace('impi', 'impi-devel') }}
   run:
     - python
-    - {{ mpi }}
+    - {{ mpi | replace('impi', 'impi_rt') }}
 
 
 about:
