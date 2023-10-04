@@ -13,8 +13,9 @@ source:
 build:
   number: 0
   script:
-    - {{ PYTHON }} conf/cythonize.py
-    - export OPAL_PREFIX=$PREFIX   # [mpi == "openmpi"]
+    - {{ PYTHON }} conf/cythonize.py  # TODO: remove for mpi4py 4.0.0
+    - export OPAL_PREFIX=$PREFIX  # [mpi == "openmpi"]
+    - export I_MPI_CC=$CC  # [mpi == "impi"]
 
     # On Windows, we could also just do this:
     #- set CCP_HOME=%LIBRARY_PREFIX%  # [win]
@@ -38,11 +39,15 @@ requirements:
     - python
     - pip
     - cython <3
-    - {{ mpi }}
+    - {{ mpi | replace('impi', 'impi-devel') }}
   run:
     - python
-    - {{ mpi }}
+    - {{ mpi | replace('impi', 'impi_rt') }}
 
+
+test:
+  requires:
+    - {{ mpi | replace('impi', 'impi-devel') }}  # [mpi == "impi"]
 
 about:
   home: https://mpi4py.github.io/
