@@ -1,5 +1,6 @@
 {% set version = "3.1.5" %}
 {% set mpi = mpi or 'mpich' %}
+{% set build = 1 %}
 
 package:
   name: mpi4py
@@ -11,7 +12,7 @@ source:
     sha256: a706e76db9255135c2fb5d1ef54cb4f7b0e4ad9e33cbada7de27626205f2a153
 
 build:
-  number: 0
+  number: {{ build }}
   script:
     - {{ PYTHON }} conf/cythonize.py  # TODO: remove for mpi4py 4.0.0
     - export OPAL_PREFIX=$PREFIX  # [mpi == "openmpi"]
@@ -27,6 +28,19 @@ build:
     # only affects cross-compiled openmpi
     - sed -i "s@${BUILD_PREFIX}@${PREFIX}@g" "${SP_DIR}/mpi4py/mpi.cfg"  # [build_platform != target_platform]
   skip: true  # [win32]
+
+
+  # add build string so packages can depend on
+  # mpi variants explicitly:
+  #   `pkg * mpi_mpich_*` for mpich
+  #   `pkg * mpi_*` for any mpi
+  # https://conda-forge.org/docs/maintainer/knowledge_base.html#building-mpi-variants
+  {% set mpi_prefix = "mpi_" + mpi %}
+  string: {{ mpi_prefix }}_py{{ py }}h{{ PKG_HASH }}_{{ build }}
+
+  run_exports:
+    - mpi4py * {{ mpi_prefix }}_*
+
 
 requirements:
   build:
