@@ -11,7 +11,7 @@ source:
     sha256: a706e76db9255135c2fb5d1ef54cb4f7b0e4ad9e33cbada7de27626205f2a153
 
 build:
-  number: 0
+  number: 1
   script:
     - {{ PYTHON }} conf/cythonize.py  # TODO: remove for mpi4py 4.0.0
     - export OPAL_PREFIX=$PREFIX  # [mpi == "openmpi"]
