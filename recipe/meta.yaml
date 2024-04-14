@@ -1,4 +1,4 @@
-{% set version = "3.1.5" %}
+{% set version = "3.1.6" %}
 {% set mpi = mpi or 'mpich' %}
 
 package:
@@ -8,10 +8,10 @@ package:
 source:
   - fn: mpi4py-{{ version }}.tar.gz
     url: https://github.com/mpi4py/mpi4py/releases/download/{{ version }}/mpi4py-{{ version }}.tar.gz
-    sha256: a706e76db9255135c2fb5d1ef54cb4f7b0e4ad9e33cbada7de27626205f2a153
+    sha256: c8fa625e0f92b082ef955bfb52f19fa6691d29273d7d71135d295aa143dee6cb
 
 build:
-  number: 1
+  number: 0
   script:
     - {{ PYTHON }} conf/cythonize.py  # TODO: remove for mpi4py 4.0.0
     - export OPAL_PREFIX=$PREFIX  # [mpi == "openmpi"]
