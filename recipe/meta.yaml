@@ -11,7 +11,7 @@ source:
     sha256: c8fa625e0f92b082ef955bfb52f19fa6691d29273d7d71135d295aa143dee6cb
 
 build:
-  number: 0
+  number: 1
   script:
     - {{ PYTHON }} conf/cythonize.py  # TODO: remove for mpi4py 4.0.0
     - export OPAL_PREFIX=$PREFIX  # [mpi == "openmpi"]
@@ -34,6 +34,7 @@ requirements:
     - cython <3                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ mpi }}                              # [build_platform != target_platform and mpi == "openmpi"]
   host:
     - python
