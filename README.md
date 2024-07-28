@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mpi4py-feedstoc
 
 Home: https://mpi4py.github.io/
 
-Package license: BSD-2-Clause
+Package license: BSD-3-Clause
 
 Summary: Python bindings for MPI
 

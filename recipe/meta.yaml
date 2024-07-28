@@ -13,46 +13,42 @@ source:
 build:
   number: 0
   script:
-    - {{ PYTHON }} conf/cythonize.py  # TODO: remove for mpi4py 4.0.0
-    - export OPAL_PREFIX=$PREFIX  # [mpi == "openmpi"]
     - export I_MPI_CC=$CC  # [mpi == "impi"]
-
-    # On Windows, we could also just do this:
-    #- set CCP_HOME=%LIBRARY_PREFIX%  # [win]
-    # but conda-forge/msmpi-feedstock#1 already sets MSMPI_INC and MSMPI_LIB64,
-    # so we just use them
-
-    - {{ PYTHON }} -m pip install --no-deps . -vv
-    # rewrite references to build prefix as host prefix
-    # only affects cross-compiled openmpi
-    - sed -i "s@${BUILD_PREFIX}@${PREFIX}@g" "${SP_DIR}/mpi4py/mpi.cfg"  # [build_platform != target_platform]
+    - {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
   skip: true  # [win32]
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
-    - cython <3                              # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - {{ stdlib('c') }}
     - {{ mpi }}                              # [build_platform != target_platform and mpi == "openmpi"]
   host:
     - python
     - pip
-    - cython <3
+    - setuptools
+    - python-build
+    - cython
     - {{ mpi | replace('impi', 'impi-devel') }}
   run:
     - python
     - {{ mpi | replace('impi', 'impi_rt') }}
 
-
 test:
-  requires:
-    - {{ mpi | replace('impi', 'impi-devel') }}  # [mpi == "impi"]
+  imports:
+    - mpi4py
+    - mpi4py.MPI
+    - mpi4py.futures
+    - mpi4py.util.dtlib
+    - mpi4py.util.pkl5
+    - mpi4py.util.pool
+    - mpi4py.util.sync
 
 about:
   home: https://mpi4py.github.io/
-  license: BSD-2-Clause
+  license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.rst
   summary: Python bindings for MPI
