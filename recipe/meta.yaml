@@ -15,6 +15,7 @@ build:
   script:
     - export I_MPI_CC=$CC  # [mpi == "impi"]
     - {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
+    - del "%SP_DIR%\\mpi.pth"  # [win]
   skip: true  # [win32]
   run_exports:
     - {{ pin_subpackage("mpi4py", max_pin="x") }}
