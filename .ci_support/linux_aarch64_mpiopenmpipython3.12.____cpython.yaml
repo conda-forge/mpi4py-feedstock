@@ -35,5 +35,3 @@ target_platform:
 zip_keys:
 - - c_stdlib_version
   - cdt_name
-- - python
-  - channel_sources
