@@ -11,7 +11,7 @@ source:
     sha256: f3174b245775d556f4fddb32519a2066ef0592edc810c5b5a59238f9a0a40c89
 
 build:
-  number: 0
+  number: 1
   script:
     - export I_MPI_CC=$CC  # [mpi == "impi"]
     - {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
