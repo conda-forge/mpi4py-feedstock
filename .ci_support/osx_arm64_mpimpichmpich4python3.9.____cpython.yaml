@@ -30,3 +30,6 @@ python:
 - 3.9.* *_cpython
 target_platform:
 - osx-arm64
+zip_keys:
+- - mpi
+  - mpich
