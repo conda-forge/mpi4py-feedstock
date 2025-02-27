@@ -9,7 +9,7 @@ channel_targets:
 mpi:
 - msmpi
 mpich:
-- '4'
+- 'null'
 openmpi:
 - '5'
 pin_run_as_build:
@@ -20,3 +20,6 @@ python:
 - 3.10.* *_cpython
 target_platform:
 - win-64
+zip_keys:
+- - mpi
+  - mpich

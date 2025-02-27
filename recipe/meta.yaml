@@ -11,12 +11,14 @@ source:
     sha256: de2710d73e25e115865a3ab63d34a54b2d8608b724f761c567b6ad58dd475609
 
 build:
-  number: 0
+  number: 1
   script:
     - del src\\mpi.pth"  # [win]
     - export I_MPI_CC=$CC  # [mpi == "impi"]
     - {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
-  skip: true  # [win32]
+  {% if mpi == "mpich" and mpich == "3" and py < 312 %}
+  skip: true
+  {% endif %}
   run_exports:
     - {{ pin_subpackage("mpi4py", max_pin="x") }}
 
@@ -71,3 +73,4 @@ extra:
     - davidbrochart
     - SylvainCorlay
     - leofang
+    - beckermr
