@@ -5,5 +5,4 @@ mpi:
   - msmpi    # [win]
 mpich:        # [not win]
   - '3'       # [not win]
-extend_keys:  # [not win]
-  - mpich     # [not win]
+  - '4'       # [not win]
