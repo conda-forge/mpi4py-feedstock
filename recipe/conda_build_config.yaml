@@ -3,7 +3,7 @@ mpi:
   - openmpi  # [not win]
   - impi     # [not osx and x86_64]
   - msmpi    # [win]
-mpich:       # [now win]
-  - '3'      # [now win]
-extend_keys:
-  - mpich
+mpich:        # [now win]
+  - '3'       # [now win]
+extend_keys:  # [now win]
+  - mpich     # [now win]
