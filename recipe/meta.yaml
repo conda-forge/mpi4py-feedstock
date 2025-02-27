@@ -17,6 +17,7 @@ build:
     - export I_MPI_CC=$CC  # [mpi == "impi"]
     - {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
   skip: true  # [win32]
+  skip: true  # [unix and mpi == "mpich" and mpich == "3" and py < 312]
   run_exports:
     - {{ pin_subpackage("mpi4py", max_pin="x") }}
 
