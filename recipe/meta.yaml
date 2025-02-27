@@ -11,7 +11,7 @@ source:
     sha256: de2710d73e25e115865a3ab63d34a54b2d8608b724f761c567b6ad58dd475609
 
 build:
-  number: 0
+  number: 1
   script:
     - del src\\mpi.pth"  # [win]
     - export I_MPI_CC=$CC  # [mpi == "impi"]
