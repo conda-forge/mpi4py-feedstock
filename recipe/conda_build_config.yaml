@@ -1,5 +1,4 @@
 mpi:
   - mpich    # [not win]
-  - openmpi  # [not win]
-  - impi     # [not osx and x86_64]
-  - msmpi    # [win]
+mpich:
+  - '3'
