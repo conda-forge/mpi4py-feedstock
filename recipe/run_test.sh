@@ -1,6 +1,13 @@
 #/bin/sh
 set -ex
 
+export UCX_ERROR_SIGNALS=
+export UCX_MEMTYPE_CACHE=no
+export UCX_MEM_EVENTS=no
+
+env | grep MPI || true
+env | grep UCX || true
+
 # Basic tests
 mpiexec -n 1 python -m mpi4py --version
 mpiexec -n 1 python -m mpi4py --mpi-std-version
