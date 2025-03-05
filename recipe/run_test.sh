@@ -1,10 +1,10 @@
 #/bin/sh
 set -ex
 
+# UCX memory events can cause crashes,
+# at least on linux-aarch64 + CPython 3.12
+# also seen in Julia: https://github.com/openucx/ucx/issues/5061
 export UCX_MEM_EVENTS=no
-
-env | grep MPI || true
-env | grep UCX || true
 
 # Basic tests
 mpiexec -n 1 python -m mpi4py --version
