@@ -16,7 +16,7 @@ build:
     - del src\\mpi.pth"  # [win]
     - export I_MPI_CC=$CC  # [mpi == "impi"]
     - {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
-  skip: true  # [win32]
+  skip: true  # [target_platform != 'linux-aarch64']
   run_exports:
     - {{ pin_subpackage("mpi4py", max_pin="x") }}
 
