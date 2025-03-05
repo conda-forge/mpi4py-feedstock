@@ -12,6 +12,8 @@ source:
 
 build:
   number: 0
+  script_env:
+    - UCX_ERROR_SIGNALS=
   script:
     - del src\\mpi.pth"  # [win]
     - export I_MPI_CC=$CC  # [mpi == "impi"]
