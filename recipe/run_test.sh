@@ -1,8 +1,6 @@
 #/bin/sh
 set -ex
 
-export UCX_ERROR_SIGNALS=
-export UCX_MEMTYPE_CACHE=no
 export UCX_MEM_EVENTS=no
 
 env | grep MPI || true
