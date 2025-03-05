@@ -6,6 +6,7 @@ set -ex
 # also seen in Julia: https://github.com/openucx/ucx/issues/5061
 # export UCX_MEM_EVENTS=no
 export UCX_HANDLE_ERRORS=none
+export UCX_MEMTYPE_CACHE=no
 
 # Basic tests
 mpiexec -n 1 python -m mpi4py --version
