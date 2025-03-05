@@ -4,7 +4,7 @@ set -ex
 # UCX memory events can cause crashes,
 # at least on linux-aarch64 + CPython 3.12
 # also seen in Julia: https://github.com/openucx/ucx/issues/5061
-# export UCX_MEM_MMAP_HOOK_MODE=reloc
+export UCX_MEM_MMAP_HOOK_MODE=reloc
 export UCX_LOG_LEVEL=DEBUG
 
 # Basic tests
