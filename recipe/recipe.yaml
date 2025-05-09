@@ -41,7 +41,9 @@ requirements:
     - setuptools
     - python-build
     - cython
-    - ${{ mpi }}
+    - if: mpi == "impi"
+      then: impi-devel
+      else: ${{ mpi }}
   run:
     - python
     # only msmpi lacks run_exports
