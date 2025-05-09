@@ -1,0 +1,86 @@
+schema_version: 1
+
+context:
+  version: 4.0.3
+  mpi: ${{ mpi | default('mpich') }}
+  build: 1
+
+package:
+  name: mpi4py
+  version: ${{ version }}
+
+source:
+  url: https://github.com/mpi4py/mpi4py/releases/download/${{ version }}/mpi4py-${{ version }}.tar.gz
+  sha256: de2710d73e25e115865a3ab63d34a54b2d8608b724f761c567b6ad58dd475609
+
+build:
+  # build offset to be preferred over mpich 3 builds
+  number: ${{ build + 100 }}
+  skip: win32
+  script:
+    - if: win
+      then: del src\\mpi.pth
+    - if: mpi == "impi"
+      then: export I_MPI_CC=$CC
+    - ${{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - if: build_platform != target_platform
+      then: 
+        - python
+        - cython
+        - cross-python_${{ target_platform }}
+        - if: mpi == "openmpi"
+          then: openmpi
+  host:
+    - python
+    - pip
+    - setuptools
+    - python-build
+    - cython
+    - if: mpi == "impi"
+      then: impi-devel
+      else: ${{ mpi }}
+  run:
+    - python
+    # only msmpi lacks run_exports
+    - if: mpi == "msmpi"
+      then: ${{ pin_compatible("msmpi") }}
+  run_exports:
+    - ${{ pin_subpackage("mpi4py", upper_bound="x") }}
+
+tests:
+  - python:
+      imports:
+        - mpi4py
+        - mpi4py.MPI
+        - mpi4py.futures
+        - mpi4py.util.dtlib
+        - mpi4py.util.pkl5
+        - mpi4py.util.pool
+        - mpi4py.util.sync
+
+about:
+  license: BSD-3-Clause
+  license_file: LICENSE.rst
+  summary: Python bindings for MPI
+  description: |
+    MPI for Python provides bindings of the Message Passing Interface (MPI)
+    standard for the Python programming language, allowing any Python program
+    to exploit multiple processors.
+  homepage: https://mpi4py.github.io/
+  repository: https://github.com/mpi4py/mpi4py
+  documentation: https://mpi4py.readthedocs.org/
+
+extra:
+  recipe-maintainers:
+    - dalcinl
+    - minrk
+    - msarahan
+    - ocefpaf
+    - davidbrochart
+    - SylvainCorlay
+    - leofang
