@@ -1,9 +1,9 @@
 schema_version: 1
 
 context:
-  version: 4.0.3
+  version: "4.1.0"
   mpi: ${{ mpi | default('mpich') }}
-  build: 1
+  build: 0
 
 package:
   name: mpi4py
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://github.com/mpi4py/mpi4py/releases/download/${{ version }}/mpi4py-${{ version }}.tar.gz
-  sha256: de2710d73e25e115865a3ab63d34a54b2d8608b724f761c567b6ad58dd475609
+  sha256: 817492796bce771ccd809a6051cf68d48689815493b567a696ce7679260449cd
 
 build:
   # build offset to be preferred over mpich 3 builds
@@ -29,7 +29,7 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - if: build_platform != target_platform
-      then: 
+      then:
         - python
         - cython
         - cross-python_${{ target_platform }}
