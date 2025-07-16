@@ -62,6 +62,10 @@ tests:
         - mpi4py.util.pkl5
         - mpi4py.util.pool
         - mpi4py.util.sync
+  - script: run_test.sh
+    files:
+      recipe:
+        - test_mpi4py.py
 
 about:
   license: BSD-3-Clause
