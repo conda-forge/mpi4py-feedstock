@@ -3,7 +3,7 @@ schema_version: 1
 context:
   version: "4.1.0"
   mpi: ${{ mpi | default('mpich') }}
-  build: 0
+  build: 1
 
 package:
   name: mpi4py
@@ -62,6 +62,21 @@ tests:
         - mpi4py.util.pkl5
         - mpi4py.util.pool
         - mpi4py.util.sync
+  - script:
+      content:
+        - mpiexec -n 1 python -m mpi4py --version
+        - mpiexec -n 1 python -m mpi4py --mpi-std-version
+        - mpiexec -n 1 python -m mpi4py --mpi-lib-version
+        - mpiexec -n 2 python -m mpi4py.bench helloworld
+        - mpiexec -n 2 python -m mpi4py.bench ringtest
+        # Additional tests are in Python
+        - python test_mpi4py.py
+      env:
+        # workaround https://github.com/prefix-dev/rattler-build/issues/1317
+        CONDA_BUILD: "1"
+    files:
+      recipe:
+        - test_mpi4py.py
 
 about:
   license: BSD-3-Clause
