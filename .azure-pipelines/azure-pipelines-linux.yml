@@ -8,144 +8,144 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_mpiimpipython3.10.____cpython:
-        CONFIG: linux_64_mpiimpipython3.10.____cpython
+      linux_64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiimpipython3.14.____cp314:
+        CONFIG: linux_64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiimpipython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpiimpipython3.11.____cpython:
-        CONFIG: linux_64_mpiimpipython3.11.____cpython
+      linux_64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpimpichpython3.14.____cp314:
+        CONFIG: linux_64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpimpichpython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpiimpipython3.12.____cpython:
-        CONFIG: linux_64_mpiimpipython3.12.____cpython
+      linux_64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiopenmpipython3.14.____cp314:
+        CONFIG: linux_64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiopenmpipython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpiimpipython3.13.____cp313:
-        CONFIG: linux_64_mpiimpipython3.13.____cp313
+      linux_64_channel_sourcesconda-forgempiimpipython3.10.____cpython:
+        CONFIG: linux_64_channel_sourcesconda-forgempiimpipython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpiimpipython3.9.____cpython:
-        CONFIG: linux_64_mpiimpipython3.9.____cpython
+      linux_64_channel_sourcesconda-forgempiimpipython3.11.____cpython:
+        CONFIG: linux_64_channel_sourcesconda-forgempiimpipython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpimpichpython3.10.____cpython:
-        CONFIG: linux_64_mpimpichpython3.10.____cpython
+      linux_64_channel_sourcesconda-forgempiimpipython3.12.____cpython:
+        CONFIG: linux_64_channel_sourcesconda-forgempiimpipython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpimpichpython3.11.____cpython:
-        CONFIG: linux_64_mpimpichpython3.11.____cpython
+      linux_64_channel_sourcesconda-forgempiimpipython3.13.____cp313:
+        CONFIG: linux_64_channel_sourcesconda-forgempiimpipython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpimpichpython3.12.____cpython:
-        CONFIG: linux_64_mpimpichpython3.12.____cpython
+      linux_64_channel_sourcesconda-forgempimpichpython3.10.____cpython:
+        CONFIG: linux_64_channel_sourcesconda-forgempimpichpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpimpichpython3.13.____cp313:
-        CONFIG: linux_64_mpimpichpython3.13.____cp313
+      linux_64_channel_sourcesconda-forgempimpichpython3.11.____cpython:
+        CONFIG: linux_64_channel_sourcesconda-forgempimpichpython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpimpichpython3.9.____cpython:
-        CONFIG: linux_64_mpimpichpython3.9.____cpython
+      linux_64_channel_sourcesconda-forgempimpichpython3.12.____cpython:
+        CONFIG: linux_64_channel_sourcesconda-forgempimpichpython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpiopenmpipython3.10.____cpython:
-        CONFIG: linux_64_mpiopenmpipython3.10.____cpython
+      linux_64_channel_sourcesconda-forgempimpichpython3.13.____cp313:
+        CONFIG: linux_64_channel_sourcesconda-forgempimpichpython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpiopenmpipython3.11.____cpython:
-        CONFIG: linux_64_mpiopenmpipython3.11.____cpython
+      linux_64_channel_sourcesconda-forgempiopenmpipython3.10.____cpython:
+        CONFIG: linux_64_channel_sourcesconda-forgempiopenmpipython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpiopenmpipython3.12.____cpython:
-        CONFIG: linux_64_mpiopenmpipython3.12.____cpython
+      linux_64_channel_sourcesconda-forgempiopenmpipython3.11.____cpython:
+        CONFIG: linux_64_channel_sourcesconda-forgempiopenmpipython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpiopenmpipython3.13.____cp313:
-        CONFIG: linux_64_mpiopenmpipython3.13.____cp313
+      linux_64_channel_sourcesconda-forgempiopenmpipython3.12.____cpython:
+        CONFIG: linux_64_channel_sourcesconda-forgempiopenmpipython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpiopenmpipython3.9.____cpython:
-        CONFIG: linux_64_mpiopenmpipython3.9.____cpython
+      linux_64_channel_sourcesconda-forgempiopenmpipython3.13.____cp313:
+        CONFIG: linux_64_channel_sourcesconda-forgempiopenmpipython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpimpichpython3.10.____cpython:
-        CONFIG: linux_aarch64_mpimpichpython3.10.____cpython
+      linux_aarch64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpimpichpython3.14.____cp314:
+        CONFIG: linux_aarch64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpimpichpython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpimpichpython3.11.____cpython:
-        CONFIG: linux_aarch64_mpimpichpython3.11.____cpython
+      linux_aarch64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiopenmpipython3.14.____cp314:
+        CONFIG: linux_aarch64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiopenmpipython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpimpichpython3.12.____cpython:
-        CONFIG: linux_aarch64_mpimpichpython3.12.____cpython
+      linux_aarch64_channel_sourcesconda-forgempimpichpython3.10.____cpython:
+        CONFIG: linux_aarch64_channel_sourcesconda-forgempimpichpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpimpichpython3.13.____cp313:
-        CONFIG: linux_aarch64_mpimpichpython3.13.____cp313
+      linux_aarch64_channel_sourcesconda-forgempimpichpython3.11.____cpython:
+        CONFIG: linux_aarch64_channel_sourcesconda-forgempimpichpython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpimpichpython3.9.____cpython:
-        CONFIG: linux_aarch64_mpimpichpython3.9.____cpython
+      linux_aarch64_channel_sourcesconda-forgempimpichpython3.12.____cpython:
+        CONFIG: linux_aarch64_channel_sourcesconda-forgempimpichpython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpiopenmpipython3.10.____cpython:
-        CONFIG: linux_aarch64_mpiopenmpipython3.10.____cpython
+      linux_aarch64_channel_sourcesconda-forgempimpichpython3.13.____cp313:
+        CONFIG: linux_aarch64_channel_sourcesconda-forgempimpichpython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpiopenmpipython3.11.____cpython:
-        CONFIG: linux_aarch64_mpiopenmpipython3.11.____cpython
+      linux_aarch64_channel_sourcesconda-forgempiopenmpipython3.10.____cpython:
+        CONFIG: linux_aarch64_channel_sourcesconda-forgempiopenmpipython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpiopenmpipython3.12.____cpython:
-        CONFIG: linux_aarch64_mpiopenmpipython3.12.____cpython
+      linux_aarch64_channel_sourcesconda-forgempiopenmpipython3.11.____cpython:
+        CONFIG: linux_aarch64_channel_sourcesconda-forgempiopenmpipython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpiopenmpipython3.13.____cp313:
-        CONFIG: linux_aarch64_mpiopenmpipython3.13.____cp313
+      linux_aarch64_channel_sourcesconda-forgempiopenmpipython3.12.____cpython:
+        CONFIG: linux_aarch64_channel_sourcesconda-forgempiopenmpipython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpiopenmpipython3.9.____cpython:
-        CONFIG: linux_aarch64_mpiopenmpipython3.9.____cpython
+      linux_aarch64_channel_sourcesconda-forgempiopenmpipython3.13.____cp313:
+        CONFIG: linux_aarch64_channel_sourcesconda-forgempiopenmpipython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpimpichpython3.10.____cpython:
-        CONFIG: linux_ppc64le_mpimpichpython3.10.____cpython
+      linux_ppc64le_channel_sourcesconda-forgeconda-forgelabelpython_rcmpimpichpython3.14.____cp314:
+        CONFIG: linux_ppc64le_channel_sourcesconda-forgeconda-forgelabelpython_rcmpimpichpython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpimpichpython3.11.____cpython:
-        CONFIG: linux_ppc64le_mpimpichpython3.11.____cpython
+      linux_ppc64le_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiopenmpipython3.14.____cp314:
+        CONFIG: linux_ppc64le_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiopenmpipython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpimpichpython3.12.____cpython:
-        CONFIG: linux_ppc64le_mpimpichpython3.12.____cpython
+      linux_ppc64le_channel_sourcesconda-forgempimpichpython3.10.____cpython:
+        CONFIG: linux_ppc64le_channel_sourcesconda-forgempimpichpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpimpichpython3.13.____cp313:
-        CONFIG: linux_ppc64le_mpimpichpython3.13.____cp313
+      linux_ppc64le_channel_sourcesconda-forgempimpichpython3.11.____cpython:
+        CONFIG: linux_ppc64le_channel_sourcesconda-forgempimpichpython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpimpichpython3.9.____cpython:
-        CONFIG: linux_ppc64le_mpimpichpython3.9.____cpython
+      linux_ppc64le_channel_sourcesconda-forgempimpichpython3.12.____cpython:
+        CONFIG: linux_ppc64le_channel_sourcesconda-forgempimpichpython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpiopenmpipython3.10.____cpython:
-        CONFIG: linux_ppc64le_mpiopenmpipython3.10.____cpython
+      linux_ppc64le_channel_sourcesconda-forgempimpichpython3.13.____cp313:
+        CONFIG: linux_ppc64le_channel_sourcesconda-forgempimpichpython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpiopenmpipython3.11.____cpython:
-        CONFIG: linux_ppc64le_mpiopenmpipython3.11.____cpython
+      linux_ppc64le_channel_sourcesconda-forgempiopenmpipython3.10.____cpython:
+        CONFIG: linux_ppc64le_channel_sourcesconda-forgempiopenmpipython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpiopenmpipython3.12.____cpython:
-        CONFIG: linux_ppc64le_mpiopenmpipython3.12.____cpython
+      linux_ppc64le_channel_sourcesconda-forgempiopenmpipython3.11.____cpython:
+        CONFIG: linux_ppc64le_channel_sourcesconda-forgempiopenmpipython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpiopenmpipython3.13.____cp313:
-        CONFIG: linux_ppc64le_mpiopenmpipython3.13.____cp313
+      linux_ppc64le_channel_sourcesconda-forgempiopenmpipython3.12.____cpython:
+        CONFIG: linux_ppc64le_channel_sourcesconda-forgempiopenmpipython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpiopenmpipython3.9.____cpython:
-        CONFIG: linux_ppc64le_mpiopenmpipython3.9.____cpython
+      linux_ppc64le_channel_sourcesconda-forgempiopenmpipython3.13.____cp313:
+        CONFIG: linux_ppc64le_channel_sourcesconda-forgempiopenmpipython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
     maxParallel: 27
