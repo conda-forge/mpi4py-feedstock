@@ -3,7 +3,7 @@ schema_version: 1
 context:
   version: "4.1.0"
   mpi: ${{ mpi | default('mpich') }}
-  build: 1
+  build: 2
 
 package:
   name: mpi4py
