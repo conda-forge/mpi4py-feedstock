@@ -16,7 +16,6 @@ source:
 build:
   # build offset to be preferred over mpich 3 builds
   number: ${{ build + 100 }}
-  skip: win32
   script:
     - if: win
       then: del src\\mpi.pth
