@@ -19,7 +19,7 @@ build:
   script:
     - if: win
       then: del src\\mpi.pth
-    - if: mpi == "impi"
+    - if: mpi == "impi" and not win
       then: export I_MPI_CC=$CC
     - ${{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
 
