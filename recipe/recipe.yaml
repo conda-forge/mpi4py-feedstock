@@ -3,7 +3,7 @@ schema_version: 1
 context:
   version: "4.1.0"
   mpi: ${{ mpi | default('mpich') }}
-  build: 1
+  build: 2
 
 package:
   name: mpi4py
@@ -16,11 +16,10 @@ source:
 build:
   # build offset to be preferred over mpich 3 builds
   number: ${{ build + 100 }}
-  skip: win32
   script:
     - if: win
       then: del src\\mpi.pth
-    - if: mpi == "impi"
+    - if: mpi == "impi" and not win
       then: export I_MPI_CC=$CC
     - ${{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
 
