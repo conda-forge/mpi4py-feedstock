@@ -8,6 +8,8 @@ channel_targets:
 - conda-forge main
 impi_devel:
 - '2021.14'
+is_abi3:
+- true
 mpi:
 - impi
 mpich:

@@ -3,7 +3,11 @@ schema_version: 1
 context:
   version: "4.1.0"
   mpi: ${{ mpi | default('mpich') }}
-  build: 2
+  python: ${{ python | default("3.10") }}
+  build: 3
+  build_abi3: ${{ is_abi3 and match(python, "3.10.*") }}
+  abi3_tag: "cp3${{ (python | split('.'))[1] }}"
+  skip_abi3: ${{ is_abi3 and match(python, ">=3.11") }}
 
 package:
   name: mpi4py
@@ -16,12 +20,18 @@ source:
 build:
   # build offset to be preferred over mpich 3 builds
   number: ${{ build + 100 }}
+  python:
+    version_independent: ${{ build_abi3 }}
+  skip: skip_abi3
   script:
-    - if: win
-      then: del src\\mpi.pth
-    - if: mpi == "impi" and not win
-      then: export I_MPI_CC=$CC
-    - ${{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
+    content:
+      - if: win
+        then: del src\\mpi.pth
+      - if: mpi == "impi" and not win
+        then: export I_MPI_CC=$CC
+      - ${{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
+    env:
+      MPI4PY_BUILD_PYSABI: ${{ abi3_tag if build_abi3 else "" }}
 
 requirements:
   build:
@@ -43,6 +53,8 @@ requirements:
     - if: mpi == "impi"
       then: impi-devel
       else: ${{ mpi }}
+    - if: build_abi3
+      then: python-abi3
   run:
     - python
     # only msmpi lacks run_exports
@@ -61,6 +73,14 @@ tests:
         - mpi4py.util.pkl5
         - mpi4py.util.pool
         - mpi4py.util.sync
+      python_version:
+        - if: build_abi3
+          then:
+            - "3.10.*"
+            - "3.11.*"
+            - "3.12.*"
+            - "3.13.*"
+            # - "3.14"
   - script:
       content:
         - mpiexec -n 1 python -m mpi4py --version
@@ -68,6 +88,7 @@ tests:
         - mpiexec -n 1 python -m mpi4py --mpi-lib-version
         - mpiexec -n 2 python -m mpi4py.bench helloworld
         - mpiexec -n 2 python -m mpi4py.bench ringtest
+        - mpiexec -n 4 python -m mpi4py.bench ringtest -n 1000 -l 100000 -s 100
         # Additional tests are in Python
         - python test_mpi4py.py
       env:
@@ -76,6 +97,36 @@ tests:
     files:
       recipe:
         - test_mpi4py.py
+    requirements:
+      run:
+        # first test with build Python
+        # abi3 build will run with latest, otherwise
+        - if: build_abi3
+          then: python ${{ python }}
+          
+  
+  - if: build_abi3
+    then:
+      # abi3audit for 3.10 fails because some stable APIs are backported from Python 3.13 in pyapicompat.h
+      - if: not win
+        then:
+          - script:
+              - abi3audit  $PREFIX/lib/python3.13/site-packages/mpi4py/*.so -v -s --assume-minimum-abi3 3.13
+            requirements:
+              run:
+                - abi3audit
+                - python 3.13.*
+      
+      # directly test stable abi against other versions
+      - script:
+          content:
+            - mpiexec -n 2 python -m mpi4py.bench helloworld
+            - mpiexec -n 2 python -m mpi4py.bench ringtest -n 1000 -l 100000 -s 100
+          env:
+            CONDA_BUILD: "1"
+        requirements:
+          run:
+            - python 3.13.*
 
 about:
   license: BSD-3-Clause
