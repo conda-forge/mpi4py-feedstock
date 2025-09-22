@@ -15,7 +15,7 @@ channel_targets:
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 impi_devel:
-- '2021.14'
+- 2021.16.0
 mpi:
 - impi
 mpich:

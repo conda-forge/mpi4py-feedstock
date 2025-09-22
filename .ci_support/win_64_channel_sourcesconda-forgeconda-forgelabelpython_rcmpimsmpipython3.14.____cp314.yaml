@@ -7,7 +7,7 @@ channel_sources:
 channel_targets:
 - conda-forge main
 impi_devel:
-- '2021.14'
+- 2021.16.0
 mpi:
 - msmpi
 mpich:
