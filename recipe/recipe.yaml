@@ -3,7 +3,7 @@ schema_version: 1
 context:
   version: "4.1.0"
   mpi: ${{ mpi | default('mpich') }}
-  build: 2
+  build: 3
 
 package:
   name: mpi4py
@@ -12,6 +12,8 @@ package:
 source:
   url: https://github.com/mpi4py/mpi4py/releases/download/${{ version }}/mpi4py-${{ version }}.tar.gz
   sha256: 817492796bce771ccd809a6051cf68d48689815493b567a696ce7679260449cd
+  patches:
+    - impi202116-win.patch
 
 build:
   # build offset to be preferred over mpich 3 builds

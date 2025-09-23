@@ -1,0 +1,13 @@
+diff --git a/src/lib-mpi/config/impi.h b/src/lib-mpi/config/impi.h
+index 28ce444f..df977fd5 100644
+--- a/src/lib-mpi/config/impi.h
++++ b/src/lib-mpi/config/impi.h
+@@ -274,4 +274,9 @@
+ 
+ #endif
+ 
++#if I_MPI_NUMVERSION < 20211700300 && defined (_WIN32)
++#undef PyMPI_HAVE_MPI_File_get_type_extent_c 1
++#undef PyMPI_HAVE_MPI_Register_datarep_c 1
++#endif
++
