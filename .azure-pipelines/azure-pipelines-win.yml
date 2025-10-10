@@ -8,35 +8,35 @@ jobs:
     vmImage: windows-2022
   strategy:
     matrix:
-      win_64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiimpipython3.14.____cp314:
-        CONFIG: win_64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiimpipython3.14.____cp314
+      win_64_mpiimpipython3.10.____cpython:
+        CONFIG: win_64_mpiimpipython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      win_64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpimsmpipython3.14.____cp314:
-        CONFIG: win_64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpimsmpipython3.14.____cp314
+      win_64_mpiimpipython3.11.____cpython:
+        CONFIG: win_64_mpiimpipython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-      win_64_channel_sourcesconda-forgempiimpipython3.10.____cpython:
-        CONFIG: win_64_channel_sourcesconda-forgempiimpipython3.10.____cpython
+      win_64_mpiimpipython3.12.____cpython:
+        CONFIG: win_64_mpiimpipython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-      win_64_channel_sourcesconda-forgempiimpipython3.11.____cpython:
-        CONFIG: win_64_channel_sourcesconda-forgempiimpipython3.11.____cpython
+      win_64_mpiimpipython3.13.____cp313:
+        CONFIG: win_64_mpiimpipython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
-      win_64_channel_sourcesconda-forgempiimpipython3.12.____cpython:
-        CONFIG: win_64_channel_sourcesconda-forgempiimpipython3.12.____cpython
+      win_64_mpiimpipython3.14.____cp314:
+        CONFIG: win_64_mpiimpipython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
-      win_64_channel_sourcesconda-forgempiimpipython3.13.____cp313:
-        CONFIG: win_64_channel_sourcesconda-forgempiimpipython3.13.____cp313
+      win_64_mpimsmpipython3.10.____cpython:
+        CONFIG: win_64_mpimsmpipython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      win_64_channel_sourcesconda-forgempimsmpipython3.10.____cpython:
-        CONFIG: win_64_channel_sourcesconda-forgempimsmpipython3.10.____cpython
+      win_64_mpimsmpipython3.11.____cpython:
+        CONFIG: win_64_mpimsmpipython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-      win_64_channel_sourcesconda-forgempimsmpipython3.11.____cpython:
-        CONFIG: win_64_channel_sourcesconda-forgempimsmpipython3.11.____cpython
+      win_64_mpimsmpipython3.12.____cpython:
+        CONFIG: win_64_mpimsmpipython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-      win_64_channel_sourcesconda-forgempimsmpipython3.12.____cpython:
-        CONFIG: win_64_channel_sourcesconda-forgempimsmpipython3.12.____cpython
+      win_64_mpimsmpipython3.13.____cp313:
+        CONFIG: win_64_mpimsmpipython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
-      win_64_channel_sourcesconda-forgempimsmpipython3.13.____cp313:
-        CONFIG: win_64_channel_sourcesconda-forgempimsmpipython3.13.____cp313
+      win_64_mpimsmpipython3.14.____cp314:
+        CONFIG: win_64_mpimsmpipython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
     maxParallel: 8
   timeoutInMinutes: 360
