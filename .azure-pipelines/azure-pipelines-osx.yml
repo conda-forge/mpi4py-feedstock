@@ -8,65 +8,65 @@ jobs:
     vmImage: macOS-15
   strategy:
     matrix:
-      osx_64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpimpichpython3.14.____cp314:
-        CONFIG: osx_64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpimpichpython3.14.____cp314
+      osx_64_mpimpichpython3.10.____cpython:
+        CONFIG: osx_64_mpimpichpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiopenmpipython3.14.____cp314:
-        CONFIG: osx_64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiopenmpipython3.14.____cp314
+      osx_64_mpimpichpython3.11.____cpython:
+        CONFIG: osx_64_mpimpichpython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_sourcesconda-forgempimpichpython3.10.____cpython:
-        CONFIG: osx_64_channel_sourcesconda-forgempimpichpython3.10.____cpython
+      osx_64_mpimpichpython3.12.____cpython:
+        CONFIG: osx_64_mpimpichpython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_sourcesconda-forgempimpichpython3.11.____cpython:
-        CONFIG: osx_64_channel_sourcesconda-forgempimpichpython3.11.____cpython
+      osx_64_mpimpichpython3.13.____cp313:
+        CONFIG: osx_64_mpimpichpython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_sourcesconda-forgempimpichpython3.12.____cpython:
-        CONFIG: osx_64_channel_sourcesconda-forgempimpichpython3.12.____cpython
+      osx_64_mpimpichpython3.14.____cp314:
+        CONFIG: osx_64_mpimpichpython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_sourcesconda-forgempimpichpython3.13.____cp313:
-        CONFIG: osx_64_channel_sourcesconda-forgempimpichpython3.13.____cp313
+      osx_64_mpiopenmpipython3.10.____cpython:
+        CONFIG: osx_64_mpiopenmpipython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_sourcesconda-forgempiopenmpipython3.10.____cpython:
-        CONFIG: osx_64_channel_sourcesconda-forgempiopenmpipython3.10.____cpython
+      osx_64_mpiopenmpipython3.11.____cpython:
+        CONFIG: osx_64_mpiopenmpipython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_sourcesconda-forgempiopenmpipython3.11.____cpython:
-        CONFIG: osx_64_channel_sourcesconda-forgempiopenmpipython3.11.____cpython
+      osx_64_mpiopenmpipython3.12.____cpython:
+        CONFIG: osx_64_mpiopenmpipython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_sourcesconda-forgempiopenmpipython3.12.____cpython:
-        CONFIG: osx_64_channel_sourcesconda-forgempiopenmpipython3.12.____cpython
+      osx_64_mpiopenmpipython3.13.____cp313:
+        CONFIG: osx_64_mpiopenmpipython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_sourcesconda-forgempiopenmpipython3.13.____cp313:
-        CONFIG: osx_64_channel_sourcesconda-forgempiopenmpipython3.13.____cp313
+      osx_64_mpiopenmpipython3.14.____cp314:
+        CONFIG: osx_64_mpiopenmpipython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpimpichpython3.14.____cp314:
-        CONFIG: osx_arm64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpimpichpython3.14.____cp314
+      osx_arm64_mpimpichpython3.10.____cpython:
+        CONFIG: osx_arm64_mpimpichpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiopenmpipython3.14.____cp314:
-        CONFIG: osx_arm64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiopenmpipython3.14.____cp314
+      osx_arm64_mpimpichpython3.11.____cpython:
+        CONFIG: osx_arm64_mpimpichpython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_sourcesconda-forgempimpichpython3.10.____cpython:
-        CONFIG: osx_arm64_channel_sourcesconda-forgempimpichpython3.10.____cpython
+      osx_arm64_mpimpichpython3.12.____cpython:
+        CONFIG: osx_arm64_mpimpichpython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_sourcesconda-forgempimpichpython3.11.____cpython:
-        CONFIG: osx_arm64_channel_sourcesconda-forgempimpichpython3.11.____cpython
+      osx_arm64_mpimpichpython3.13.____cp313:
+        CONFIG: osx_arm64_mpimpichpython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_sourcesconda-forgempimpichpython3.12.____cpython:
-        CONFIG: osx_arm64_channel_sourcesconda-forgempimpichpython3.12.____cpython
+      osx_arm64_mpimpichpython3.14.____cp314:
+        CONFIG: osx_arm64_mpimpichpython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_sourcesconda-forgempimpichpython3.13.____cp313:
-        CONFIG: osx_arm64_channel_sourcesconda-forgempimpichpython3.13.____cp313
+      osx_arm64_mpiopenmpipython3.10.____cpython:
+        CONFIG: osx_arm64_mpiopenmpipython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_sourcesconda-forgempiopenmpipython3.10.____cpython:
-        CONFIG: osx_arm64_channel_sourcesconda-forgempiopenmpipython3.10.____cpython
+      osx_arm64_mpiopenmpipython3.11.____cpython:
+        CONFIG: osx_arm64_mpiopenmpipython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_sourcesconda-forgempiopenmpipython3.11.____cpython:
-        CONFIG: osx_arm64_channel_sourcesconda-forgempiopenmpipython3.11.____cpython
+      osx_arm64_mpiopenmpipython3.12.____cpython:
+        CONFIG: osx_arm64_mpiopenmpipython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_sourcesconda-forgempiopenmpipython3.12.____cpython:
-        CONFIG: osx_arm64_channel_sourcesconda-forgempiopenmpipython3.12.____cpython
+      osx_arm64_mpiopenmpipython3.13.____cp313:
+        CONFIG: osx_arm64_mpiopenmpipython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_sourcesconda-forgempiopenmpipython3.13.____cp313:
-        CONFIG: osx_arm64_channel_sourcesconda-forgempiopenmpipython3.13.____cp313
+      osx_arm64_mpiopenmpipython3.14.____cp314:
+        CONFIG: osx_arm64_mpiopenmpipython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
     maxParallel: 15
   timeoutInMinutes: 360

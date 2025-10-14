@@ -1,9 +1,9 @@
 schema_version: 1
 
 context:
-  version: "4.1.0"
+  version: "4.1.1"
   mpi: ${{ mpi | default('mpich') }}
-  build: 3
+  build: 0
 
 package:
   name: mpi4py
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://github.com/mpi4py/mpi4py/releases/download/${{ version }}/mpi4py-${{ version }}.tar.gz
-  sha256: 817492796bce771ccd809a6051cf68d48689815493b567a696ce7679260449cd
+  sha256: eb2c8489bdbc47fdc6b26ca7576e927a11b070b6de196a443132766b3d0a2a22
   patches:
     - impi202116-win.patch
 
