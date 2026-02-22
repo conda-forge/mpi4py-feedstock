@@ -3,7 +3,7 @@ schema_version: 1
 context:
   version: "4.1.1"
   mpi: ${{ mpi | default('mpich') }}
-  build: 2
+  build: 3
   # we use the broader ABI compat in mpi4py that allows versions built
   # with latest mpi to be used with earlier versions.
   # these versions of the mpis are the minimum versions we
@@ -32,12 +32,13 @@ build:
   number: ${{ build + 100 }}
   script:
     - if: win
-      then: del src\\mpi.pth
-    - if: mpi == "impi" and not win
-      then: export I_MPI_CC=$CC
-    - if: not win
-      then: export MPI4PY_BUILD_MPIABI=1
-      else: set "MPI4PY_BUILD_MPIABI=1"
+      then:
+        - del src\\mpi.pth
+        - set "MPI4PY_BUILD_MPIABI=1"
+      else:
+        - if: mpi == "impi"
+          then: export I_MPI_CC=$CC
+        - export MPI4PY_BUILD_MPIABI=1
     - ${{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
 
 requirements:
@@ -108,9 +109,9 @@ tests:
   - script:
       content:
         - if: mpi == "openmpi"
-          then: export OMPI_MCA_plm_rsh_agent=false
-        - if: mpi == "openmpi"
-          then: export OMPI_MCA_rmaps_base_oversubscribe=true
+          then:
+            - export OMPI_MCA_plm_rsh_agent=false
+            - export OMPI_MCA_rmaps_base_oversubscribe=true
         - mpiexec -n 1 python -m mpi4py --version
         - mpiexec -n 1 python -m mpi4py --mpi-library
         - mpiexec -n 1 python -m mpi4py --mpi-std-version
