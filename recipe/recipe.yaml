@@ -25,7 +25,7 @@ source:
   url: https://github.com/mpi4py/mpi4py/releases/download/${{ version }}/mpi4py-${{ version }}.tar.gz
   sha256: eb2c8489bdbc47fdc6b26ca7576e927a11b070b6de196a443132766b3d0a2a22
   patches:
-    - impi202116-win.patch
+    - setuptools.patch
 
 build:
   # build offset to be preferred over mpich 3 builds
