@@ -3,7 +3,7 @@ schema_version: 1
 context:
   version: "4.1.2"
   mpi: ${{ mpi | default('mpich') }}
-  build: 0
+  build: 1
   # we use the broader ABI compat in mpi4py that allows versions built
   # with latest mpi to be used with earlier versions.
   # these versions of the mpis are the minimum versions we
